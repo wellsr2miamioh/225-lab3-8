@@ -23,8 +23,8 @@ pipeline {
                     sh 'kubectl apply -f mongo-secret.yaml'
                     sh 'kubectl apply -f mongo.yaml'
                     sh 'kubectl apply -f mongo-configmap.yaml'
-                    docker.withRegistry('https://your-docker-registry', 'docker-registry-credentials') {
-                        docker.image(env.DOCKER_IMAGE).push()}
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDENTIALS_ID}") {
+                        docker.image("${DOCKER_IMAGE}:${IMAGE_TAG}").push()
                     sh 'kubectl apply -f mongo-express.yaml'
                 }
             }
