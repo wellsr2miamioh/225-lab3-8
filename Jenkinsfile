@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {                                                                                // Be sure that you have added the mongo-secret.yaml to your cluster before you run your pipeline.
                     docker.build(env.DOCKER_IMAGE)
-                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDENTIALS_ID}") {
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDENTIALS_ID}") 
                         docker.image("${DOCKER_IMAGE}:${IMAGE_TAG}").push()
                     sh "sed -i 's|${DOCKER_IMAGE}:latest|${DOCKER_IMAGE}:${IMAGE_TAG}|' mongo-express.yaml"
    
