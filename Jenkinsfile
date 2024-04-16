@@ -18,7 +18,6 @@ pipeline {
         stage('Build Mongo Stateful Set') {
             steps {
                 script {                                                                                // Be sure that you have added the mongo-secret.yaml to your cluster before you run your pipeline.
-                    docker.build(env.DOCKER_IMAGE)
                     docker.withRegistry('https://registry.hub.docker.com', env.DOCKERHUB_CREDENTIALS) {
                         // Pull the Docker image
                         docker.image('mongo-express:latest').pull()
