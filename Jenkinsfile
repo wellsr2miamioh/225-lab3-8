@@ -22,10 +22,10 @@ pipeline {
                         // Pull the Docker image
                         docker.image('mongo-express:latest').pull()
                     }
-                    sh 'kubectl apply -f mongo-secret.yaml'
-                    sh 'kubectl apply -f mongo.yaml'
-                    sh 'kubectl apply -f mongo-configmap.yaml'
-                    sh 'kubectl apply -f mongo-express.yaml'
+                    //sh 'kubectl apply -f mongo-secret.yaml'
+                   // sh 'kubectl apply -f mongo.yaml'
+                   // sh 'kubectl apply -f mongo-configmap.yaml'
+                   // sh 'kubectl apply -f mongo-express.yaml'
                 }
             }
         }
