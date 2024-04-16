@@ -14,8 +14,6 @@ spec:
       labels:
         app: mongo-express
     spec:
-      imagePullSecrets:
-          - name: myregistrykey
       containers:
       - name: mongo-express
         image: mongo-express
