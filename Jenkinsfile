@@ -4,7 +4,6 @@ pipeline {
     environment {
         DOCKER_CREDENTIALS_ID = 'roseaw-dockerhub'
         GITHUB_URL = 'https://github.com/miamioh-cit/225-lab3-8.git'                                    //<------This github URL
-        DOCKER_IMAGE = 'my-mongo-express'
         KUBECONFIG = credentials('roseaw-225')                                                          //<------Your MiamiID
     }
 
