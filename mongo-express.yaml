@@ -35,6 +35,8 @@ spec:
             configMapKeyRef:
               name: mongodb-configmap
               key: database_url
+        imagePullSecrets:
+          - name: myregistrykey
 ---   
 apiVersion: v1
 kind: Service
