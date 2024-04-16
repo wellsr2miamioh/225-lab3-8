@@ -21,7 +21,7 @@ pipeline {
                     docker.build(env.DOCKER_IMAGE)
                     docker.withRegistry('https://registry.hub.docker.com', env.DOCKERHUB_CREDENTIALS) {
                         // Pull the Docker image
-                        docker.image('mongo:latest').pull()
+                        docker.image('mongo-express:latest').pull()
                     }
                     sh 'kubectl apply -f mongo-secret.yaml'
                     sh 'kubectl apply -f mongo.yaml'
