@@ -23,7 +23,7 @@ pipeline {
                     docker.withRegistry('https://registry.hub.docker.com', env.DOCKERHUB_CREDENTIALS) {
                         // Pull the Docker image
                         docker.image('mongo:latest').pull()
-   
+                    }
                     sh 'kubectl apply -f mongo-secret.yaml'
                     sh 'kubectl apply -f mongo.yaml'
                     sh 'kubectl apply -f mongo-configmap.yaml'
