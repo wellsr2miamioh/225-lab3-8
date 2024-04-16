@@ -18,7 +18,7 @@ spec:
           - name: myregistrykey
       containers:
       - name: mongo-express
-        image: cithit/my-mongo-express
+        image: mongo-express
         ports:
         - containerPort: 8081
         env:
