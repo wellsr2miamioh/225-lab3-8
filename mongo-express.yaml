@@ -43,14 +43,15 @@ kind: Service
 metadata:
   name: mongo-express-service
 spec:
-   type: LoadBalancer
-   loadBalancerIP: 10.48.10.116  # Static IP for the LoadBalancer
+  type: LoadBalancer
+  loadBalancerIP: 10.48.10.116  # Static IP for the LoadBalancer
   ports:
   - protocol: TCP
     port: 80
     targetPort: 8081
   selector:
     app: mongo-express
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
