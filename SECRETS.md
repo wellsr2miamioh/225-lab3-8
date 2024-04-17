@@ -13,5 +13,5 @@
 
 7) Go in to Rancher to also add in the following code in the kubectl command line (after you replace your docker username and password):
 
-   kubectl create secret docker-registry docker-creds --docker-username=<your-username> --docker-password=<your-password> --docker-email=<your-email>
+   "kubectl create secret docker-registry docker-creds --docker-username=<your-username> --docker-password=<your-password> --docker-email=<your-email>"
 
