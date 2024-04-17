@@ -43,8 +43,8 @@ kind: Service
 metadata:
   name: mongo-express-service
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 10.48.10.116  # Static IP for the LoadBalancer
+ // type: LoadBalancer
+//loadBalancerIP: 10.48.10.116  # Static IP for the LoadBalancer
   ports:
   - protocol: TCP
     port: 8081
