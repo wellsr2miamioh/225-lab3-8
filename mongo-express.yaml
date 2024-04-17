@@ -6,6 +6,8 @@ metadata:
     app: mongo-express
 spec:
   replicas: 1
+        imagePullSecrets:
+      - name: docker-creds  # Secret to use for pulling Docker images from a private registry.
   selector:
     matchLabels:
       app: mongo-express
