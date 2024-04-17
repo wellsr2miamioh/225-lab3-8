@@ -6,8 +6,6 @@ metadata:
     app: mongo-express
 spec:
   replicas: 1
-  imagePullSecrets:
-    - name: docker-creds  # Secret to use for pulling Docker images from a private registry.
   selector:
     matchLabels:
       app: mongo-express
@@ -28,24 +26,25 @@ spec:
               name: mongodb-secret
               key: mongo-root-username
         - name: ME_CONFIG_MONGODB_ADMINPASSWORD
-          valueFrom: 
+          valueFrom:
             secretKeyRef:
               name: mongodb-secret
               key: mongo-root-password
         - name: ME_CONFIG_MONGODB_SERVER
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: mongodb-configmap
               key: database_url
-        
----   
+      imagePullSecrets:
+      - name: docker-creds  # Correctly placed inside template.spec
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: mongo-express-service
 spec:
-  type: LoadBalancer 
-  loadBalancerIP: 10.48.10.116                                     # <-----Your Load Balancer IP
+  type: LoadBalancer
+  loadBalancerIP: 10.48.10.116  # Static IP for the LoadBalancer (ensure it is within your cloud provider's IP range if applicable)
   ports:
   - protocol: TCP
     port: 8081
